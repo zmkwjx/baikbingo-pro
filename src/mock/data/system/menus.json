@@ -1,0 +1,19 @@
+[
+  {
+    "path": "/test",
+    "name": "test",
+    "icon": "icon",
+    "children": [
+      {
+        "path": "/test/test2",
+        "name": "test2",
+        "icon": "icon"
+      }
+    ]
+  },
+  {
+    "path": "/test1",
+    "name": "test1",
+    "icon": "icon"
+  }
+]

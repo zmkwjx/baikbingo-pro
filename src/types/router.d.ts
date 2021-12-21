@@ -1,3 +1,9 @@
+export interface RouteMetaStruct {
+  title?: string;
+  cache?: boolean;
+  isAuth?: boolean;
+}
+
 /**
  * 动态路由结构体
  *
@@ -8,10 +14,7 @@ export interface RouteStruct {
   path: string;
   name: string;
   icon: string;
-  meta?: {
-    title?: string;
-    cache?: boolean;
-  };
+  meta?: RouteMetaStruct;
   children?: RouteStruct[];
   redirect?: string;
 }

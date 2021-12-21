@@ -1,6 +1,6 @@
 <template>
-  <el-empty description="Sorry, the page you visited does not exist.">
-    <h2>404</h2>
+  <el-empty description="Sorry, something went wrong.">
+    <h2>500</h2>
     <el-button type="primary" @click="goHome()">Back Home</el-button>
   </el-empty>
 </template>

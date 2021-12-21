@@ -1,12 +1,19 @@
-import { CommonStoreStruct } from "@/types";
+import { StoreCommonStateStruct as State } from "@/types";
+
+// 同步操作
+const mutations = {
+  SET_COLLAPSE: (state: State) => {
+    state.isCollapse = !state.isCollapse;
+  }
+};
+
+// 状态树
+const state = () => ({
+  isCollapse: false
+});
 
 export default {
-  state: () => ({
-    isCollapse: false
-  }),
-  mutations: {
-    SET_COLLAPSE: (state: CommonStoreStruct) => {
-      state.isCollapse = !state.isCollapse;
-    }
-  }
+  namespaced: true,
+  state,
+  mutations
 };

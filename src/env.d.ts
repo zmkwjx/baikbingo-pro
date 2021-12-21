@@ -6,3 +6,11 @@ declare module "*.vue" {
   const component: DefineComponent<{}, {}, any>;
   export default component;
 }
+
+declare module "mockjs";
+
+declare module "@baikbingo/cache" {
+  const Cache: any;
+  export default Cache;
+  export function createCache(): any;
+}

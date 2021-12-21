@@ -67,10 +67,10 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
             // 判断是否为最终的页面视图
             return modules[component]
               ? modules[component]()
-              : import("@/components/errorPage/404.vue");
+              : import("@/components/errorPage/500.vue");
           },
           name: oMenu.name,
-          icon: oMenu.name,
+          icon: oMenu.icon,
           meta,
           redirect: isChild ? children[0].path : "",
           // 整理子路由的route 配置

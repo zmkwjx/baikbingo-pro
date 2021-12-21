@@ -4,7 +4,8 @@ import App from "./App.vue";
 import basicChunk from "@/components/basicChunk";
 import asyncChunk from "@/components/asyncChunk";
 import router from "@/router";
-import store from "@/store";
+import "@/router/guard-router"; // 路由守卫
+import store, { storeKey } from "@/store";
 import "element-plus/dist/index.css";
 
 // 初始化
@@ -12,7 +13,7 @@ const app = createApp(App);
 // 路由
 app.use(router);
 // 全局状态
-app.use(store);
+app.use(store, storeKey);
 // 使用全局组件
 app.use(basicChunk);
 // 使用异步组件

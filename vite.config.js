@@ -1,4 +1,5 @@
 import { defineConfig, loadEnv } from "vite";
+import { viteMockServe } from "vite-plugin-mock";
 import vue from "@vitejs/plugin-vue";
 import path from "path";
 
@@ -6,7 +7,16 @@ import path from "path";
 export default ({ mode }) => {
   return defineConfig({
     base: "/",
-    plugins: [vue()],
+    plugins: [
+      vue(),
+      viteMockServe({
+        // default
+        mockPath: "./src/mock",
+        supportTs: true,
+        localEnabled:
+          loadEnv(mode, process.cwd()).VITE_NODE_ENV === "development"
+      })
+    ],
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src")
