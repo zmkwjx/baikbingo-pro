@@ -13,6 +13,7 @@
           v-model="loginForm.username"
           auto-complete="off"
           placeholder="请输入用户名"
+          clearable
         >
           <template #prefix>
             <i class="iconfont icon-user" s></i>
@@ -26,6 +27,8 @@
           auto-complete="off"
           type="password"
           placeholder="请输入密码"
+          show-password
+          clearable
         >
           <template #prefix>
             <i class="iconfont icon-lock_fill" style="font-size: 18px"></i>
