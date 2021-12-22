@@ -1,4 +1,51 @@
 .bkpro-login {
+  &-submit {
+    margin-top: 100px;
+    width: 100%;
+    .el-button {
+      width: 100%;
+      background-color: rgb(248, 247, 253);
+      border: none;
+      min-height: 45px;
+      color: rgb(131, 131, 180);
+      font-weight: 800;
+    }
+  }
+  &-form {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    margin-top: 40px;
+    .el-input__prefix {
+      left: 12px;
+      i {
+        color: rgb(203, 206, 223);
+      }
+    }
+    .el-input--prefix .el-input__inner {
+      padding-left: 38px;
+    }
+    .el-input__inner {
+      background-color: rgb(248, 247, 253);
+      border: none;
+    }
+    .el-input__inner::placeholder {
+      color: rgb(203, 206, 223);
+    }
+    .el-form-item {
+      margin-bottom: 40px;
+    }
+  }
+  &-type {
+    color: rgb(131, 131, 180);
+  }
+  &-logo {
+    color: rgb(80, 116, 176);
+    text-align: center;
+  }
+  &-main {
+    padding: 25px;
+  }
   &-canvas {
     position: absolute;
     width: 100%;
