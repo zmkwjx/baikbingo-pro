@@ -35,7 +35,7 @@
     </el-form>
     <!-- 提交 -->
     <div class="bkpro-login-submit">
-      <el-button @click.native.prevent="handleLogin">登录</el-button>
+      <el-button @click.native.prevent="handleLogin">登 录</el-button>
     </div>
   </div>
 </template>
