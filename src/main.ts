@@ -1,5 +1,6 @@
 import { createApp } from "vue";
 import ElementPlus from "element-plus";
+import Particles from "particles.vue3";
 import App from "./App.vue";
 import basicChunk from "@/components/basicChunk";
 import asyncChunk from "@/components/asyncChunk";
@@ -18,8 +19,9 @@ app.use(store, storeKey);
 app.use(basicChunk);
 // 使用异步组件
 app.use(asyncChunk);
+// 粒子特效
+app.use(Particles);
 // 使用ElementPlus
 app.use(ElementPlus);
-
 // 挂载
 app.mount("#app");

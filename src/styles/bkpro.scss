@@ -1,4 +1,4 @@
-.dscloud {
+.bkpro {
   // 图标
   &-logo {
     display: flex;
@@ -36,7 +36,7 @@
         overflow-x: hidden;
         overflow-y: auto;
         flex: 1;
-        .dscloud-header-search-panel-history-list__item:hover {
+        .bkpro-header-search-panel-history-list__item:hover {
           background-color: transparent;
           span {
             color: #006eff;
@@ -246,7 +246,7 @@
         flex-wrap: nowrap;
         display: flex;
         margin-right: 16px;
-        .dscloud-header-btn {
+        .bkpro-header-btn {
           height: 50px;
           display: inline-flex;
           align-items: center;
@@ -254,7 +254,7 @@
           padding: 0 16px;
           position: relative;
         }
-        .dscloud-header-btn:hover {
+        .bkpro-header-btn:hover {
           background-color: #344258;
         }
       }
@@ -338,7 +338,7 @@
       &__end {
         justify-content: flex-end;
         flex: 0 0 auto;
-        .dscloud-header-btn {
+        .bkpro-header-btn {
           height: 50px;
           display: inline-flex;
           align-items: center;
@@ -347,7 +347,7 @@
           position: relative;
           font-size: 18px;
         }
-        .dscloud-header-btn:hover {
+        .bkpro-header-btn:hover {
           background-color: #344258;
         }
       }
@@ -573,7 +573,7 @@
   }
 }
 // 组件：抽屉魔改
-.dscloud-drawer {
+.bkpro-drawer {
   &__head {
     width: 100%;
     height: 50px;
@@ -611,7 +611,7 @@
   }
 }
 // 组件：模块菜单魔改
-.dscloud-menus-overlay {
+.bkpro-menus-overlay {
   height: 800px;
   width: 1000px;
   &-list {
@@ -661,7 +661,7 @@
     color: rgba(0, 0, 0, 0.9);
     box-sizing: border-box;
     &__box {
-      .dscloud-menus-overlay-box__label {
+      .bkpro-menus-overlay-box__label {
         font-size: 14px;
         color: #cccccc;
         i {
@@ -726,7 +726,7 @@
         display: flex;
         align-items: center;
         overflow: hidden;
-        .dscloud-menus-overlay-box__label {
+        .bkpro-menus-overlay-box__label {
           padding: 20px;
           margin-bottom: 0 !important;
         }
@@ -832,19 +832,19 @@
     }
   }
 }
-.dscloud-menus-overlay.el-popover {
+.bkpro-menus-overlay.el-popover {
   padding: 0;
   border: none;
   border-radius: 0;
 }
-.dscloud-menus-overlay.el-popover[x-placement^="bottom"] {
+.bkpro-menus-overlay.el-popover[x-placement^="bottom"] {
   margin-top: 16px;
 }
 // 组件: el-dropdown魔改
-.dscloud-dropdown {
+.bkpro-dropdown {
   margin-top: 0 !important;
 }
-.dscloud-dropdown.el-dropdown-menu {
+.bkpro-dropdown.el-dropdown-menu {
   padding: 10px 0;
   margin: 0;
   border: none;
@@ -868,17 +868,17 @@
   }
 }
 // 组件：el-popover魔改
-.dscloud-popover.el-popover {
+.bkpro-popover.el-popover {
   padding: 0;
   border: none;
   border-radius: 4px;
   background-color: #0e1521;
 }
-.dscloud-popover.el-popover[x-placement^="bottom"] {
+.bkpro-popover.el-popover[x-placement^="bottom"] {
   margin-top: 0;
 }
 // 组件：el-menu魔改
-.dscloud-sidebar__inner-body {
+.bkpro-sidebar__inner-body {
   .el-menu--collapse {
     width: 56px;
     .el-submenu__title {
@@ -908,7 +908,7 @@
     }
   }
 }
-.dscloud-sidebar__inner-body-menu {
+.bkpro-sidebar__inner-body-menu {
   .el-submenu.is-opened {
     background-color: #151822;
     padding-bottom: 10px;

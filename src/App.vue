@@ -29,9 +29,5 @@ store.dispatch("GetMenu", [
 </script>
 
 <style lang="scss">
-#app {
-  width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
+@import "./styles/index.scss";
 </style>

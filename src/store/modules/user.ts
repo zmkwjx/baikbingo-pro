@@ -28,6 +28,10 @@ const mutations = {
   SET_MENU: (state: State, value: Array<object>) => {
     state.menu = value;
     setCache({ name: "menu", content: state.menu });
+  },
+  SET_TOKEN: (state: State, value: string) => {
+    state.token = value;
+    setCache({ name: "token", content: state.token });
   }
 };
 

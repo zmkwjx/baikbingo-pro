@@ -8,7 +8,17 @@ import { initStore } from "@/store";
 const router = {
   ...createRouter({
     history: createWebHashHistory(),
-    routes: [...PageRouter]
+    routes: [...PageRouter],
+    scrollBehavior(to) {
+      if (to.hash) {
+        return {
+          el: to.hash,
+          behavior: "smooth"
+        };
+      }
+      // 始终滚动到顶部
+      return { top: 0 };
+    }
   }),
   $asyncRouter: {
     render: (menus: RouteStruct[], first: boolean): RouteStruct[] => {
