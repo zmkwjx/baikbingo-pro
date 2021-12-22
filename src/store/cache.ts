@@ -6,8 +6,6 @@ import config from "@/config";
 const keyName = `${config.clientName}-`;
 export const cache = createCache();
 
-cache.set("ss", { d: "11" });
-
 // 遍历缓存
 export const readAllCache = () => {
   return cache.readAll();
