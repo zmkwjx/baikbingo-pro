@@ -16,7 +16,16 @@ export default [
     component: () => import("@/components/errorPage/404.vue")
   },
   {
-    path: "/:catchAll(.*)",
-    redirect: "/404"
+    path: "/500",
+    name: "500",
+    meta: {
+      isAuth: false
+    },
+    component: () => import("@/components/errorPage/500.vue")
+  },
+  {
+    path: "/",
+    name: "主页",
+    redirect: "/dashboard"
   }
 ];

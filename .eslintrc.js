@@ -55,10 +55,14 @@ module.exports = {
         ignorePropertyModificationsFor: [
           "res", // for Express responses
           "item", // for Express responses
+          "request",
           "state" // for vuex state 解决assignment to property of function parameter ‘state‘
         ]
       }
-    ]
+    ],
+    "no-underscore-dangle": ["error", { allow: ["__retryCount"] }],
+    "import/prefer-default-export": 0,
+    "no-continue": 0
   },
   settings: {
     "import/extensions": [".js", ".jsx", "ts", "tsx", ".vue", ".d.ts"],

@@ -25,7 +25,7 @@ const store = createStore({
 export default store;
 
 // 初始化缓存
-let isCache = true;
+let isCache: boolean = true;
 export const initStore = (): Promise<any> => {
   if (isCache) {
     return readAllCache().then(() => {

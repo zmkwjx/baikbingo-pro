@@ -1,29 +1,43 @@
 <template>
-  <main class="dscloud-layout-overview welhome">
-    <div class="dscloud-layout-overview__content">
-      <div class="dscloud-layout-overview__content-body">
-        <div class="dscloud-layout-overview__content-body-inner">
-          <div class="welhome-guide">
-            <div class="welhome-guide-left">
-              <div class="welhome-guide-left__btns">
+  <main class="bkpro-layout-overview dashboard">
+    <div class="bkpro-layout-overview__content">
+      <div class="bkpro-layout-overview__content-body">
+        <div class="bkpro-layout-overview__content-body-inner">
+          <div class="dashboard-guide">
+            <div class="dashboard-guide-left">
+              <div class="dashboard-guide-left__btns">
                 <div
-                  class="welhome-guide-left__btns-item"
+                  class="dashboard-guide-left__btns-item"
                   :class="{
-                    'welhome-guide-left__btns-selected': item.value === showKey
+                    'dashboard-guide-left__btns-selected':
+                      item.value === showKey
                   }"
-                  v-for="item in modules.filter((s) => s.value === showKey)"
+                  v-for="item in modules"
                   :key="item.value"
                   @click="onSelect(item)"
                 >
-                  数据面板
+                  {{ item.label }}
                 </div>
               </div>
-              <div class="welhome-guide-left__editor">
-                <i class="el-icon-s-tools" style="margin-right: 5px" />
+              <div class="dashboard-guide-left__editor">
+                <pro-icon
+                  type="setting-o"
+                  size="12"
+                  style="margin-right: 5px"
+                />
                 <span>管理面板</span>
               </div>
             </div>
-            <div class="welhome-guide-right"></div>
+            <div class="dashboard-guide-right"></div>
+          </div>
+          <div class="dashboard-main">
+            <div class="element">
+              <div class="item1 card">1</div>
+              <div class="item2 card">2</div>
+              <div class="item3 card">3</div>
+              <div class="item4 card">4</div>
+              <div class="item5 card">5</div>
+            </div>
           </div>
         </div>
       </div>
@@ -34,15 +48,15 @@
 <script lang="ts" setup>
 import { ref } from "vue";
 
-const showKey = ref("enthome");
+const showKey = ref("test1");
 const modules = ref([
   {
-    label: "企业面板",
-    value: "enthome"
+    label: "数据面板",
+    value: "test1"
   },
   {
-    label: "项目面板",
-    value: "project"
+    label: "监控面板",
+    value: "test2"
   }
 ]);
 
@@ -52,7 +66,46 @@ const onSelect = (item: { label: string; value: string }) => {
 </script>
 
 <style lang="scss">
-.welhome {
+.dashboard-main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  .element {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    grid-auto-flow: row;
+    grid-template-rows: repeat(81, calc(100% / 81));
+    grid-template-columns: repeat(166, calc(100% / 166));
+    .item1 {
+      height: 600px;
+      grid-area: 1 / 1 / 82 / 116;
+    }
+    .item2 {
+      height: 90px;
+      grid-area: 1 / 117 / 13 / 167;
+    }
+    .item3 {
+      height: 90px;
+      grid-area: 14 / 117 / 26 / 167;
+    }
+    .item4 {
+      height: 170px;
+      grid-area: 27 / 117 / 50 / 167;
+    }
+    .item5 {
+      height: 230px;
+      grid-area: 51 / 117 / 82 / 167;
+    }
+  }
+  .compile {
+    box-sizing: border-box;
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.dashboard {
   &-guide {
     margin-bottom: 12px;
     align-items: center;
@@ -138,7 +191,6 @@ const onSelect = (item: { label: string; value: string }) => {
     border-radius: 2px;
     box-shadow: 0 2px 4px 0 rgba(54, 58, 80, 0.32);
     background-color: #ffffff;
-    // box-shadow: 0 2px 12px 0 rgba(110, 110, 110, 0.1);
     .__head {
       margin-bottom: 20px;
       font-size: 16px;

@@ -87,7 +87,7 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
               component: () => import("@/page/index/index.vue"),
               children: [
                 {
-                  path: "/dashboard/index",
+                  path: "/dashboard",
                   name: "dashboard",
                   component: () => import("@/page/dashboard/index.vue")
                 },
@@ -97,6 +97,7 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
           ]);
           this.source.push(aRouter[0].path);
         }
+        this.setStatus();
       }
       // 这里返回的是子组件
       return aRouter;

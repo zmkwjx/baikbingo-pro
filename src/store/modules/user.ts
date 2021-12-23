@@ -1,20 +1,54 @@
+import { Md5 } from "ts-md5/dist/md5";
 import { ActionContext } from "vuex";
 import { setCache } from "../cache";
+import { useAPI } from "@/apis";
 import {
   StoreUserStateStruct as State,
   StoreStateStruct as RootState
 } from "@/types";
 
+const API = useAPI();
+
 // 异步操作
 const actions = {
   // 获取系统菜单
-  GetMenu(
+  GetMenu({ commit }: ActionContext<State, RootState>): Promise<any> {
+    return new Promise((resolve, reject) => {
+      API.system
+        .getMenuList()
+        .then((res) => {
+          const data = res?.data?.data || [];
+          commit("SET_MENU", data);
+          resolve(data);
+        })
+        .catch((err) => {
+          reject(err);
+        });
+    });
+  },
+  // 账号密码登录
+  LoginByUsername(
     { commit }: ActionContext<State, RootState>,
     value: any
   ): Promise<any> {
-    return new Promise((resolve: any) => {
-      commit("SET_MENU", value);
-      resolve();
+    return new Promise((resolve, reject) => {
+      API.user
+        .login({
+          username: value.username,
+          password: Md5.hashStr(value.password)
+        })
+        .then((res) => {
+          const data = res?.data?.data || {};
+          // 设置用户数据
+          commit("SET_USER_INFO", data);
+          // 设置TOKEN
+          commit("SET_TOKEN", data?.token);
+          // 出口
+          resolve();
+        })
+        .catch((err) => {
+          reject(err);
+        });
     });
   }
 };

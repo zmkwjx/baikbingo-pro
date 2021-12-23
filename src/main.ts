@@ -8,6 +8,7 @@ import router from "@/router";
 import "@/router/guard-router"; // 路由守卫
 import store, { storeKey } from "@/store";
 import "element-plus/dist/index.css";
+import "nprogress/nprogress.css";
 
 // 初始化
 const app = createApp(App);

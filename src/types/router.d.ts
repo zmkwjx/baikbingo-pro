@@ -2,6 +2,7 @@ export interface RouteMetaStruct {
   title?: string;
   cache?: boolean;
   isAuth?: boolean;
+  iconSize?: Number;
 }
 
 /**

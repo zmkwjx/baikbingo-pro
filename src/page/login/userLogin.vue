@@ -9,20 +9,20 @@
     >
       <el-form-item prop="username">
         <el-input
-          @keyup.enter.native="handleLogin"
+          @keyup.enter.native="handleLogin(loginForm)"
           v-model="loginForm.username"
           auto-complete="off"
           placeholder="请输入用户名"
           clearable
         >
           <template #prefix>
-            <i class="iconfont icon-user" s></i>
+            <pro-icon type="user" size="16" />
           </template>
         </el-input>
       </el-form-item>
       <el-form-item prop="password">
         <el-input
-          @keyup.enter.native="handleLogin"
+          @keyup.enter.native="handleLogin(loginForm)"
           v-model="loginForm.password"
           auto-complete="off"
           type="password"
@@ -31,14 +31,16 @@
           clearable
         >
           <template #prefix>
-            <i class="iconfont icon-lock_fill" style="font-size: 18px"></i>
+            <pro-icon type="lock_fill" size="18" />
           </template>
         </el-input>
       </el-form-item>
     </el-form>
     <!-- 提交 -->
     <div class="bkpro-login-submit">
-      <el-button @click.native.prevent="handleLogin">登 录</el-button>
+      <el-button @click.native.prevent="handleLogin(loginForm)">
+        登 录
+      </el-button>
     </div>
   </div>
 </template>
@@ -69,11 +71,14 @@ export default defineComponent({
     const loginRef = ref();
     const store = useStore();
     const router = useRouter();
-    const handleLogin = () => {
+
+    // 登录方法
+    const handleLogin = (data: any) => {
       loginRef.value.validate((valid: any) => {
         if (valid) {
-          store.commit("SET_TOKEN", "dddddd");
-          router.push({ path: "/" });
+          store.dispatch("LoginByUsername", data).then(() => {
+            router.push({ path: "/" });
+          });
         }
       });
     };
