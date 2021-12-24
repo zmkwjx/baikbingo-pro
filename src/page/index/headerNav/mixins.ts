@@ -1,15 +1,13 @@
 import { useRouter } from "vue-router";
-import { RouteStruct } from "@/types";
-
-const router = useRouter();
+import { RouteStruct, TagStruct } from "@/types";
 
 // 是否隐藏
-const ishide = (item: any) => {
+export const ishide = (item: any) => {
   return item.remark !== "hide";
 };
 
 // 找到最后一个
-const findLast = (item: RouteStruct): RouteStruct => {
+export const findLast = (item: RouteStruct): RouteStruct => {
   const child = item.children || [];
   for (let i = 0; i < child.length; i += 1) {
     if (!ishide(child[i])) {
@@ -24,12 +22,14 @@ const findLast = (item: RouteStruct): RouteStruct => {
 };
 
 // 页面跳转
-const onJump = (item: RouteStruct) => {
+export const onJump = (item: RouteStruct) => {
+  const router = useRouter();
   router.push({ path: item.path });
 };
 
-export default {
-  ishide,
-  findLast,
-  onJump
+// 序列化标签
+export const tagMapToArr = (data: Map<string, TagStruct>): TagStruct[] => {
+  const arr = [...data.values()];
+  arr.sort((a: TagStruct, b: TagStruct) => b.timestamp - a.timestamp);
+  return arr.slice(0, 50);
 };

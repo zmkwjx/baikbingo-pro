@@ -4,6 +4,7 @@ import { StoreStateStruct as State } from "@/types";
 import getters from "./getters";
 import common from "./modules/common";
 import user from "./modules/user";
+import tags from "./modules/tags";
 import { readAllCache, getCache } from "./cache";
 
 // vuex 的 key
@@ -19,7 +20,8 @@ const store = createStore({
   getters,
   modules: {
     common,
-    user
+    user,
+    tags
   }
 });
 export default store;
@@ -32,6 +34,9 @@ export const initStore = (): Promise<any> => {
       store.state.user.userInfo = getCache({ name: "userInfo" }) || {};
       store.state.user.menu = getCache({ name: "menu" }) || [];
       store.state.user.token = getCache({ name: "token" }) || null;
+      store.state.tags.tagList = getCache({ name: "tagList" }) || new Map();
+      store.state.tags.tagStar = getCache({ name: "tagStar" }) || [];
+      store.state.tags.tagFind = getCache({ name: "tagFind" }) || [];
       isCache = false;
     });
   }
