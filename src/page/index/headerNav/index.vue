@@ -17,6 +17,7 @@
       <!-- 搜索菜单 -->
     </div>
     <!-- 更多操作 -->
+    <more></more>
   </div>
 </template>
 <script lang="ts" setup>
@@ -25,6 +26,7 @@ import { ref } from "vue";
 import { useStore } from "@/store";
 import Logo from "./Logo.vue";
 import Menus from "./Menus.vue";
+import More from "./more/index.vue";
 import { RouterMenuStruct } from "@/types";
 
 // 获取实例
