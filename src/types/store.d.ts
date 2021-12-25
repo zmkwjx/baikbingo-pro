@@ -1,3 +1,4 @@
+import { RouterMenuStruct } from "./router";
 import { TagStruct } from "./tag";
 
 export interface StoreUserStateStruct {
@@ -12,7 +13,7 @@ export interface StoreCommonStateStruct {
 
 export interface StoreTagStateStruct {
   tagList: Map<String, TagStruct>;
-  tagStar: Array<TagStruct>;
+  tagStar: RouterMenuStruct[];
   tagFind: Array<String>;
 }
 

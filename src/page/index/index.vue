@@ -21,9 +21,9 @@
                   </div>
                   <div class="bkpro-layout__content-body" :style="ContentStyle">
                     <div class="bkpro-layout__content-body-inner">
-                      <keep-alive>
-                        <router-view />
-                      </keep-alive>
+                      <!-- <keep-alive> -->
+                      <router-view />
+                      <!-- </keep-alive> -->
                     </div>
                   </div>
                 </div>

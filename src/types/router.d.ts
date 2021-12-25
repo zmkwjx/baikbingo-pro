@@ -25,3 +25,13 @@ export interface RouterPluginStruct {
   $store: any;
   install: Function;
 }
+
+export interface RouterMenuStruct {
+  id: string | number;
+  pid: string | number;
+  path: string;
+  name: string;
+  icon: string;
+  children?: RouterMenuStruct[];
+  remark: string;
+}

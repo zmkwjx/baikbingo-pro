@@ -6,7 +6,11 @@
       <!-- 总览按钮 -->
       <div class="bkpro-header-btn" @click="goHome">总览</div>
       <!-- 模块菜单 -->
-      <menus></menus>
+      <menus
+        :stars="stars"
+        @on-star-add="onStarAdd"
+        @on-star-del="onStarDel"
+      ></menus>
     </div>
     <div class="bkpro-header-inner__center">
       <!-- 快捷访问 -->
@@ -17,13 +21,37 @@
 </template>
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
+import { ref } from "vue";
+import { useStore } from "@/store";
 import Logo from "./Logo.vue";
 import Menus from "./Menus.vue";
+import { RouterMenuStruct } from "@/types";
 
-const router = useRouter();
+// 获取实例
+const $router = useRouter();
+const $store = useStore();
+
+// 变量
+const stars = ref<RouterMenuStruct[]>([]); // 收藏的数据
+stars.value = $store.getters.tagStar;
 
 // 返回首页
 const goHome = () => {
-  router.push({ path: "/" });
+  $router.push({ path: "/" });
+};
+
+// 收藏菜单
+const onStarAdd = (item: RouterMenuStruct) => {
+  stars.value.push(item);
+  $store.dispatch("SetTagStar", stars.value);
+};
+
+// 删除收藏菜单
+const onStarDel = (item: RouterMenuStruct) => {
+  const index = stars.value.findIndex(
+    (s: RouterMenuStruct) => s.id === item.id
+  );
+  stars.value.splice(index, 1);
+  $store.dispatch("SetTagStar", stars.value);
 };
 </script>

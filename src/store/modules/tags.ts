@@ -2,7 +2,8 @@ import { ActionContext } from "vuex";
 import {
   StoreTagStateStruct as State,
   StoreStateStruct as RootState,
-  TagStruct
+  TagStruct,
+  RouterMenuStruct
 } from "@/types";
 import { setCache } from "../cache";
 
@@ -36,7 +37,7 @@ const mutations = {
     state.tagList = new Map();
     setCache({ name: "tagList", content: state.tagList });
   },
-  SET_TAG_STAR: (state: State, data: TagStruct[]) => {
+  SET_TAG_STAR: (state: State, data: RouterMenuStruct[]) => {
     state.tagStar = data;
     setCache({ name: "tagStar", content: state.tagStar });
   },

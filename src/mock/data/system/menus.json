@@ -1,19 +1,28 @@
 [
   {
+    "id": 1,
+    "pid": 0,
     "path": "/test",
-    "name": "test",
+    "name": "测试页面1",
     "icon": "gold-coin",
+    "remark": "",
     "children": [
       {
+        "id": 2,
+        "pid": 1,
         "path": "/test/test2",
-        "name": "test2",
-        "icon": "gold-coin"
+        "name": "测试页面2",
+        "icon": "gold-coin",
+        "remark": ""
       }
     ]
   },
   {
-    "path": "/test1",
-    "name": "test1",
-    "icon": "hot"
+    "id": 3,
+    "pid": 0,
+    "path": "/test3",
+    "name": "测试页面3",
+    "icon": "hot",
+    "remark": ""
   }
 ]
