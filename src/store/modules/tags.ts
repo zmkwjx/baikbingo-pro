@@ -15,6 +15,9 @@ const actions = {
   SetTagStar({ commit }: ActionContext<State, RootState>, data: TagStruct[]) {
     commit("SET_TAG_STAR", data);
   },
+  SetTagFind({ commit }: ActionContext<State, RootState>, data: string[]) {
+    commit("SET_TAG_FIND", data);
+  },
   ClearTag({ commit }: ActionContext<State, RootState>) {
     commit("DEL_ALL_TAG");
     commit("SET_TAG_STAR", []);

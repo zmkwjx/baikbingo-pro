@@ -9,6 +9,7 @@ export interface StoreUserStateStruct {
 
 export interface StoreCommonStateStruct {
   isCollapse: boolean;
+  keepAlive: boolean | string;
 }
 
 export interface StoreTagStateStruct {

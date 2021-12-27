@@ -16,7 +16,7 @@
           clearable
         >
           <template #prefix>
-            <pro-icon type="user" size="16" />
+            <pro-icon type="user" size="18" />
           </template>
         </el-input>
       </el-form-item>
@@ -31,7 +31,7 @@
           clearable
         >
           <template #prefix>
-            <pro-icon type="lock_fill" size="18" />
+            <pro-icon type="lock" size="18" />
           </template>
         </el-input>
       </el-form-item>

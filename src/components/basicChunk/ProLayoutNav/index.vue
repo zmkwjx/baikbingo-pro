@@ -1,7 +1,7 @@
 <template>
-  <div ref="headRef" class="dscloud-layout__header" :id="accesskey">
+  <div ref="headRef" class="bkpro-layout__header" :id="accesskey">
     <slot name="title">
-      <div class="dscloud-layout__header-title">{{ title }}</div>
+      <div class="bkpro-layout__header-title">{{ title }}</div>
     </slot>
     <slot />
   </div>

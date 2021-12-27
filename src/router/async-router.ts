@@ -85,6 +85,7 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
             {
               path: "/",
               component: () => import("@/page/index/index.vue"),
+              redirect: "/dashboard",
               children: [
                 {
                   path: "/dashboard",

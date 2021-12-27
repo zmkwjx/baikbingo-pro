@@ -1,4 +1,4 @@
 <template>
-  <router-view></router-view>
+  <div>22</div>
 </template>
 <script setup></script>

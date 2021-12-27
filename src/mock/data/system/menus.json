@@ -4,7 +4,7 @@
     "pid": 0,
     "path": "/test",
     "name": "测试页面1",
-    "icon": "gold-coin",
+    "icon": "slack-circle-fill",
     "remark": "",
     "children": [
       {
@@ -12,8 +12,26 @@
         "pid": 1,
         "path": "/test/test2",
         "name": "测试页面2",
-        "icon": "gold-coin",
-        "remark": ""
+        "icon": "slack-circle-fill",
+        "remark": "",
+        "children": [
+          {
+            "id": 9,
+            "pid": 2,
+            "path": "/test/test2/test9",
+            "name": "测试页面9",
+            "icon": "slack-circle-fill",
+            "remark": ""
+          },
+          {
+            "id": 10,
+            "pid": 2,
+            "path": "/test/test2/test10",
+            "name": "测试页面10",
+            "icon": "slack-circle-fill",
+            "remark": ""
+          }
+        ]
       }
     ]
   },
@@ -22,7 +40,51 @@
     "pid": 0,
     "path": "/test3",
     "name": "测试页面3",
-    "icon": "hot",
-    "remark": ""
+    "icon": "compass",
+    "remark": "",
+    "children": [
+      {
+        "id": 4,
+        "pid": 3,
+        "path": "/test3/test4",
+        "name": "测试页面4",
+        "icon": "slack-circle-fill",
+        "remark": ""
+      },
+      {
+        "id": 5,
+        "pid": 3,
+        "path": "/test3/test5",
+        "name": "测试页面5",
+        "icon": "slack-circle-fill",
+        "remark": ""
+      }
+    ]
+  },
+  {
+    "id": 6,
+    "pid": 0,
+    "path": "/test6",
+    "name": "测试页面6",
+    "icon": "compass",
+    "remark": "",
+    "children": [
+      {
+        "id": 7,
+        "pid": 6,
+        "path": "/test3/test7",
+        "name": "测试页面7",
+        "icon": "slack-circle-fill",
+        "remark": ""
+      },
+      {
+        "id": 8,
+        "pid": 6,
+        "path": "/test3/test8",
+        "name": "测试页面8",
+        "icon": "slack-circle-fill",
+        "remark": ""
+      }
+    ]
   }
 ]

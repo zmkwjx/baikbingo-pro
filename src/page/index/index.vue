@@ -21,9 +21,16 @@
                   </div>
                   <div class="bkpro-layout__content-body" :style="ContentStyle">
                     <div class="bkpro-layout__content-body-inner">
-                      <!-- <keep-alive> -->
-                      <router-view />
-                      <!-- </keep-alive> -->
+                      <router-view
+                        v-if="$route.meta.keepAlive && $store.getters.keepAlive"
+                        :key="$store.getters.keepAlive"
+                        v-slot="{ Component }"
+                      >
+                        <keep-alive>
+                          <component :is="Component" />
+                        </keep-alive>
+                      </router-view>
+                      <router-view v-else />
                     </div>
                   </div>
                 </div>
@@ -44,13 +51,13 @@ import { useStore } from "@/store";
 import headerNav from "./headerNav/index.vue";
 
 // 获取实例
-const store = useStore();
-const route = useRoute();
+const $store = useStore();
+const $route = useRoute();
 
 // 侧边菜单展开状态
-const isCollapse = computed(() => store.getters.isCollapse);
+const isCollapse = computed(() => $store.getters.isCollapse);
 // 判断是否是预览页面
-const isHome = computed(() => route.path.includes("/dashboard"));
+const isHome = computed(() => $route.path.includes("/dashboard"));
 // 主体样式
 const ContainerStyle = computed(() => {
   const styles = { left: "-200px" };
@@ -60,10 +67,10 @@ const ContainerStyle = computed(() => {
 // 内容样式
 const MainStyle = computed(() => {
   const styles = { left: "" };
-  if (route.path.includes("/dashboard")) {
+  if ($route.path.includes("/dashboard")) {
     return styles;
   }
-  if (!route.matched[2]) {
+  if (!$route.matched[3]) {
     styles.left = "0px";
     return styles;
   }
@@ -72,7 +79,7 @@ const MainStyle = computed(() => {
 });
 // 页面样式
 const ContentStyle = computed(() => {
-  if (route.matched[2]) return {};
+  if ($route.matched[2]) return {};
   return {
     width: "1360px",
     margin: "0 auto"

@@ -205,7 +205,7 @@
       padding: 10px 0px;
       box-sizing: border-box;
       .el-input__suffix {
-        top: -5px;
+        top: 0px;
       }
       .el-input__inner {
         height: 30px;
@@ -843,7 +843,14 @@
 }
 // 组件: el-dropdown魔改
 .bkpro-dropdown {
-  margin-top: 0 !important;
+  margin-top: -12px !important;
+  .el-popper__arrow {
+    display: none;
+  }
+}
+.bkpro-dropdown.el-popper[role=tooltip] {
+  background: unset  !important;
+  border: none  !important;
 }
 .bkpro-dropdown.el-dropdown-menu {
   padding: 10px 0;
@@ -863,9 +870,6 @@
   .el-dropdown-menu__item:not(.is-disabled):hover {
     background-color: #344258;
     color: #fff;
-  }
-  .popper__arrow {
-    display: none;
   }
 }
 // 组件：el-popover魔改

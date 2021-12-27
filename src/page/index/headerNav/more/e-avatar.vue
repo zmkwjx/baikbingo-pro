@@ -1,5 +1,9 @@
 <template>
-  <el-dropdown class="bkpro-header-avatar" @command="onCommand">
+  <el-dropdown
+    ref="dropdownRef"
+    class="bkpro-header-avatar"
+    @command="onCommand"
+  >
     <!-- 触发 -->
     <a title="个人中心" class="bkpro-header-btn" style="margin-left: 5px">
       <el-avatar :size="24" :src="userInfo.avatar" alt=""></el-avatar>
@@ -14,7 +18,7 @@
       <el-dropdown-menu class="bkpro-dropdown">
         <el-dropdown-item class="bkpro-header-avatar__info">
           <div class="bkpro-header-avatar__name">
-            {{ userInfo.nick_name }}
+            {{ userInfo.nickname }}
           </div>
           <div class="bkpro-header-avatar__account">
             账号ID ：{{ userInfo.account }}
@@ -41,13 +45,21 @@
 
 <script lang="ts" setup>
 import { useRouter } from "vue-router";
-import { computed } from "vue";
+import { computed, ref, nextTick } from "vue";
 import { User, Key, CaretBottom } from "@element-plus/icons-vue";
 import { useStore } from "@/store";
 
 // 获取实例
 const $router = useRouter();
 const $store = useStore();
+const dropdownRef = ref();
+
+// 处理样式
+nextTick(() => {
+  const dom = dropdownRef.value.$refs.scrollbar.$parent.$el;
+  const className = `${dom.className} bkpro-dropdown`;
+  dom.setAttribute("class", className);
+});
 
 // 变量
 const userInfo = computed(() => $store.getters.userInfo);
@@ -88,6 +100,10 @@ const onCommand = (key: string) => {
 };
 </script>
 <style lang="scss">
+.bkpro-header-avatar__info.el-dropdown-menu__item {
+  flex-direction: column;
+  align-items: flex-start;
+}
 .bkpro-header-avatar {
   display: flex;
   &__info {

@@ -1,9 +1,9 @@
 <template>
-  <div class="dscloud-header-inner__end">
+  <div class="bkpro-header-inner__end">
     <!-- 站内信 -->
     <!-- <e-msg></e-msg> -->
     <!-- 操作记录 -->
-    <!-- <e-tags></e-tags> -->
+    <e-tags></e-tags>
     <!-- 个人中心 -->
     <e-avatar></e-avatar>
   </div>
@@ -11,4 +11,5 @@
 
 <script lang="ts" setup>
 import eAvatar from "./e-avatar.vue";
+import eTags from "./e-tags.vue";
 </script>

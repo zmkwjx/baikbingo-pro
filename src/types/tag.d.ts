@@ -1,8 +1,7 @@
 export interface TagStruct {
-  id: string | number;
-  name: String;
-  path: String;
-  moduleName?: String;
-  modulePath?: String;
+  name: string;
+  path: string;
+  moduleName?: string;
+  modulePath?: string;
   timestamp: number;
 }

@@ -1,3 +1,4 @@
+/* eslint-disable no-useless-return */
 import { ElMessage } from "element-plus";
 import router from "./index";
 import store, { initStore } from "@/store";
@@ -8,6 +9,18 @@ const sendMessage = (msg: any) => {
     showClose: true,
     message: msg,
     type: "error"
+  });
+};
+
+// 添加标签
+const setTag = (to: any) => {
+  const route = to.matched[2] || {};
+  store.dispatch("SetTag", {
+    name: to.query.name || to.name,
+    path: to.fullPath,
+    moduleName: route.name || null,
+    modulePath: route.path || null,
+    timestamp: new Date().getTime()
   });
 };
 
@@ -34,6 +47,7 @@ router.beforeEach(async (to, from, next) => {
     } else if (router.$asyncRouter.status) {
       // 路由是否匹配
       if (to.matched[0]) {
+        setTag(to);
         next();
       } else {
         next({ path: "/404" });

@@ -22,7 +22,7 @@ const findLast = (item: RouteStruct): RouteStruct => {
 
 // 序列化标签
 const tagMapToArr = (data: Map<string, TagStruct>): TagStruct[] => {
-  const arr = [...data.values()];
+  const arr = [...Array.from(data).map((a) => a[1])];
   arr.sort((a: TagStruct, b: TagStruct) => b.timestamp - a.timestamp);
   return arr.slice(0, 50);
 };

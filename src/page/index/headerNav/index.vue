@@ -14,7 +14,9 @@
     </div>
     <div class="bkpro-header-inner__center">
       <!-- 快捷访问 -->
+      <quick-enter :stars="stars"></quick-enter>
       <!-- 搜索菜单 -->
+      <search></search>
     </div>
     <!-- 更多操作 -->
     <more></more>
@@ -25,7 +27,9 @@ import { useRouter } from "vue-router";
 import { ref } from "vue";
 import { useStore } from "@/store";
 import Logo from "./Logo.vue";
+import QuickEnter from "./QuickEnter.vue";
 import Menus from "./Menus.vue";
+import Search from "./Search.vue";
 import More from "./more/index.vue";
 import { RouterMenuStruct } from "@/types";
 

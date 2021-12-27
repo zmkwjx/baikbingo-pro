@@ -34,7 +34,7 @@
                 <div :title="item.name" class="bkpro-menus-overlay-box__btn">
                   <span @click="onSelect(item)">{{ item.name }}</span>
                   <pro-icon
-                    type="cross"
+                    type="close"
                     title="从快捷访问移除"
                     @click="onStarDel(item)"
                   ></pro-icon>
@@ -74,13 +74,8 @@
                 placeholder="搜索模块、页面"
                 clearable
                 @change="onSearch"
-              >
-                <template #suffix>
-                  <el-icon class="el-input__icon">
-                    <Search />
-                  </el-icon>
-                </template>
-              </el-input>
+                :suffix-icon="Search"
+              ></el-input>
             </div>
           </div>
           <!-- 模块菜单 -->
@@ -90,7 +85,7 @@
               class="bkpro-menus-overlay-panel__search-tips"
             >
               <pro-icon
-                type="info-o"
+                type="info-circle"
                 style="margin-right: 5px; margin-top: 3px"
               ></pro-icon>
               <span>{{ searchMsg }}</span>
@@ -122,14 +117,14 @@
                       >
                         <pro-icon
                           v-if="isStar(child)"
-                          type="like"
+                          type="star-fill"
                           title="已添加至快捷访问"
                           style="color: rgb(234, 122, 32); opacity: 1"
                           @click="onStarDel(child)"
                         ></pro-icon>
                         <pro-icon
                           v-else
-                          type="like-o"
+                          type="star"
                           title="添加至快捷访问"
                           @click="onStarAdd(child)"
                         ></pro-icon>
@@ -190,7 +185,7 @@ const tags = computed(() => {
       temp.set(modulePath, { name: moduleName, path: modulePath });
     }
   }
-  return [...temp.values()];
+  return [...Array.from(temp).map((a) => a[1])];
 });
 
 // 选中菜单

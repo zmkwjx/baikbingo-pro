@@ -1,6 +1,6 @@
 <template>
   <i
-    :class="`iconfont icon-${props.type}`"
+    :class="`iconfont bkico-${props.type}`"
     :style="{ fontSize: `${props.size}px`, color: props.color }"
   ></i>
 </template>
