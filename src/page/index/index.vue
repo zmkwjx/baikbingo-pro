@@ -6,6 +6,10 @@
     </div>
     <!-- 主内容 -->
     <div class="bkpro-container" :style="ContainerStyle">
+      <!-- 侧边菜单 -->
+      <div class="bkpro-sidebar">
+        <side-bar v-if="$route.matched[2]" :key="$route.matched[2].path" />
+      </div>
       <!-- 内容 -->
       <div class="bkpro-main" :style="MainStyle">
         <div class="bkpro-page-root">
@@ -49,6 +53,7 @@ import { computed } from "vue";
 import { useRoute } from "vue-router";
 import { useStore } from "@/store";
 import headerNav from "./headerNav/index.vue";
+import sideBar from "./sideBar/index.vue";
 
 // 获取实例
 const $store = useStore();

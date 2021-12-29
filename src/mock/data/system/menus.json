@@ -29,7 +29,43 @@
             "path": "/test/test2/test10",
             "name": "测试页面10",
             "icon": "slack-circle-fill",
-            "remark": ""
+            "remark": "",
+            "children": [
+              {
+                "id": 111,
+                "pid": 10,
+                "path": "/test/test2/test10/test111",
+                "name": "测试页面111",
+                "icon": "slack-circle-fill",
+                "remark": ""
+              },
+              {
+                "id": 112,
+                "pid": 10,
+                "path": "/test/test2/test10/test112",
+                "name": "测试页面112",
+                "icon": "slack-circle-fill",
+                "remark": "",
+                "children": [
+                  {
+                    "id": 1111,
+                    "pid": 112,
+                    "path": "/test/test2/test10/test112/test1111",
+                    "name": "测试页面1111",
+                    "icon": "slack-circle-fill",
+                    "remark": ""
+                  },
+                  {
+                    "id": 1112,
+                    "pid": 112,
+                    "path": "/test/test2/test10/test112/test1112",
+                    "name": "测试页面1112",
+                    "icon": "slack-circle-fill",
+                    "remark": ""
+                  }
+                ]
+              }
+            ]
           }
         ]
       }

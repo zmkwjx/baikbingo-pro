@@ -5,9 +5,9 @@
     v-slot="{ Component }"
   >
     <transition name="bounce">
-      <keep-alive>
-        <component :is="Component" />
-      </keep-alive>
+      <!-- <keep-alive> -->
+      <component :is="Component" />
+      <!-- </keep-alive> -->
     </transition>
   </router-view>
   <router-view v-else />
