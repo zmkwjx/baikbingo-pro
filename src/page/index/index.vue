@@ -39,12 +39,14 @@
                   </div>
                 </div>
               </main>
+              <!-- 回到顶部 -->
+              <el-backtop target=".bkpro-layout__content"></el-backtop>
             </section>
           </section>
         </div>
-        <!-- 回到顶部 -->
-        <el-backtop target=".bkpro-main"></el-backtop>
       </div>
+      <!-- 回到顶部 -->
+      <el-backtop v-if="isHome" target=".bkpro-main"></el-backtop>
     </div>
   </div>
 </template>
@@ -84,7 +86,7 @@ const MainStyle = computed(() => {
 });
 // 页面样式
 const ContentStyle = computed(() => {
-  if ($route.matched[2]) return {};
+  if ($route.matched[3]) return {};
   return {
     width: "1360px",
     margin: "0 auto"

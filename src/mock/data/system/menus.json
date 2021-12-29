@@ -100,24 +100,16 @@
   {
     "id": 6,
     "pid": 0,
-    "path": "/test6",
-    "name": "测试页面6",
+    "path": "/tools",
+    "name": "系统工具",
     "icon": "compass",
-    "remark": "",
+    "remark": "tools",
     "children": [
       {
         "id": 7,
         "pid": 6,
-        "path": "/test3/test7",
-        "name": "测试页面7",
-        "icon": "slack-circle-fill",
-        "remark": ""
-      },
-      {
-        "id": 8,
-        "pid": 6,
-        "path": "/test3/test8",
-        "name": "测试页面8",
+        "path": "/tools/icons",
+        "name": "图标库",
         "icon": "slack-circle-fill",
         "remark": ""
       }

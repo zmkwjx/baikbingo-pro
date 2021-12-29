@@ -41,9 +41,22 @@
                 </div>
               </li>
             </ul>
-            <div v-else class="dscloud-menus-overlay-box__tips">
+            <div v-else class="bkpro-menus-overlay-box__tips">
               暂无数据，您可以通过右侧模块列表添加快捷访问
             </div>
+          </div>
+          <!-- 平台工具 -->
+          <div v-if="tools[0]" class="bkpro-menus-overlay-box__group">
+            <div class="bkpro-menus-overlay-box__label">平台工具</div>
+            <ul class="bkpro-menus-overlay-box__table">
+              <li
+                v-for="item in tools"
+                :key="`__tools_${item.id}`"
+                @click="onSelect(item)"
+              >
+                <div>{{ item.name }}</div>
+              </li>
+            </ul>
           </div>
         </div>
         <!-- 面板 -->
