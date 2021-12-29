@@ -26,7 +26,7 @@
                   <div class="bkpro-layout__content-body" :style="ContentStyle">
                     <div class="bkpro-layout__content-body-inner">
                       <router-view
-                        v-if="$route.meta.keepAlive && $store.getters.keepAlive"
+                        v-if="$route.meta.cache && $store.getters.keepAlive"
                         :key="$store.getters.keepAlive"
                         v-slot="{ Component }"
                       >

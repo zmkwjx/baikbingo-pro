@@ -1,6 +1,6 @@
 <template>
   <i
-    :class="`${customClass} iconfont bkico-${props.type}`"
+    :class="`${props.customClass} iconfont ${props.mode}-${props.type}`"
     :style="{ fontSize: `${props.size}px`, color: props.color }"
   ></i>
 </template>
@@ -9,6 +9,10 @@ const props = defineProps({
   type: {
     type: String,
     default: ""
+  },
+  mode: {
+    type: String,
+    default: "bkico"
   },
   customClass: {
     type: String,

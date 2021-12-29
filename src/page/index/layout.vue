@@ -1,16 +1,15 @@
 <template>
-  <router-view
-    v-if="$route.meta.keepAlive && $store.getters.keepAlive"
-    :key="$store.getters.keepAlive"
-    v-slot="{ Component }"
-  >
+  <router-view v-slot="{ Component }">
     <transition name="bounce">
-      <!-- <keep-alive> -->
-      <component :is="Component" />
-      <!-- </keep-alive> -->
+      <keep-alive
+        v-if="$route.meta.cache && $store.getters.keepAlive"
+        :key="$store.getters.keepAlive"
+      >
+        <component :is="Component" />
+      </keep-alive>
+      <component v-else :is="Component" />
     </transition>
   </router-view>
-  <router-view v-else />
 </template>
 <script lang="ts" setup>
 import { useStore } from "@/store";

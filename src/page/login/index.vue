@@ -8,7 +8,7 @@
         <div class="bkpro-login-wrapper-box__inner">
           <h1>Baikbingo Pro</h1>
           <p>
-            baikbingo福利社开源的一套saas框架，框架集成element-plus、vuex4、particles.vue3等开源组件，初始账号密码：root/123456
+            baikbingo福利社开源的一套中台前端/设计解决方案，框架集成element-plus、vuex4、particles.vue3等开源组件，初始账号密码：root/123456
           </p>
         </div>
         <div class="bkpro-login-wrapper-box__content">
