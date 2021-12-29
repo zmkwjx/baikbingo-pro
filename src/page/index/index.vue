@@ -8,7 +8,7 @@
     <div class="bkpro-container" :style="ContainerStyle">
       <!-- 侧边菜单 -->
       <div class="bkpro-sidebar">
-        <side-bar v-if="$route.matched[2]" :key="$route.matched[2].path" />
+        <side-bar v-if="$route.matched[3]" :key="$route.matched[3].path" />
       </div>
       <!-- 内容 -->
       <div class="bkpro-main" :style="MainStyle">

@@ -22,9 +22,5 @@ export default [
       isAuth: false
     },
     component: () => import("@/components/errorPage/500.vue")
-  },
-  {
-    path: "/",
-    redirect: "/dashboard"
   }
 ];

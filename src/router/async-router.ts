@@ -28,6 +28,15 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
       this.status = uuidv4();
     },
 
+    // 重置路由 比如用于身份验证失败，需要重新登录时 先清空当前的路有权限
+    resetRouter() {
+      this.source = [];
+      if (this.status) {
+        this.global.$router.removeRoute(this.status);
+        this.status = false;
+      }
+    },
+
     // 批量添加路由
     addRoutes(data: RouteStruct[]) {
       for (let i = 0; i < data.length; i += 1) {
@@ -80,10 +89,12 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
       }
       // for循环结束
       if (first) {
+        this.setStatus();
         if (!this.source.includes(aRouter[0].path)) {
           this.addRoutes([
             {
               path: "/",
+              name: this.status,
               component: () => import("@/page/index/index.vue"),
               redirect: "/dashboard",
               children: [
@@ -98,7 +109,6 @@ RouterPlugin.install = (option: { router: any; store: any }) => {
           ]);
           this.source.push(aRouter[0].path);
         }
-        this.setStatus();
       }
       // 这里返回的是子组件
       return aRouter;

@@ -63,7 +63,8 @@ module.exports = {
     "no-underscore-dangle": ["error", { allow: ["__retryCount"] }],
     "import/prefer-default-export": 0,
     "no-continue": 0,
-    "vue/no-v-model-argument": 0
+    "vue/no-v-model-argument": 0,
+    "import/no-cycle": 0
   },
   settings: {
     "import/extensions": [".js", ".jsx", "ts", "tsx", ".vue", ".d.ts"],

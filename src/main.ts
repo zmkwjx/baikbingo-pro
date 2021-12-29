@@ -6,7 +6,7 @@ import basicChunk from "@/components/basicChunk";
 import asyncChunk from "@/components/asyncChunk";
 import router from "@/router";
 import "@/router/guard-router"; // 路由守卫
-import store, { storeKey } from "@/store";
+import store, { storeKey, useStore } from "@/store";
 import "element-plus/dist/index.css";
 import "nprogress/nprogress.css";
 
@@ -16,6 +16,7 @@ const app = createApp(App);
 app.use(router);
 // 全局状态
 app.use(store, storeKey);
+app.config.globalProperties.$store = useStore();
 // 使用全局组件
 app.use(basicChunk);
 // 使用异步组件

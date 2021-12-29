@@ -44,13 +44,6 @@ const quickRef = ref();
 const dropdownRef = ref();
 const clientWidth = ref(0);
 
-// 处理样式
-nextTick(() => {
-  const dom = dropdownRef.value.$refs.scrollbar.$parent.$el;
-  const className = `${dom.className} bkpro-dropdown`;
-  dom.setAttribute("class", className);
-});
-
 // 获取实例
 const $router = useRouter();
 
@@ -109,5 +102,19 @@ const onCommand = (id: string) => {
 onInit();
 watch($props.stars, () => {
   onInit();
+});
+
+// 处理样式
+const setDropdownStyle = () => {
+  nextTick(() => {
+    const dom = dropdownRef.value.$refs.scrollbar.$parent.$el;
+    const className = `${dom.className} bkpro-dropdown`;
+    dom.setAttribute("class", className);
+  });
+};
+watch(dropData, (data) => {
+  if (data[0]) {
+    setDropdownStyle();
+  }
 });
 </script>

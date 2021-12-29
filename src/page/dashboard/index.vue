@@ -20,11 +20,7 @@
                 </div>
               </div>
               <div class="dashboard-guide-left__editor">
-                <pro-icon
-                  type="setting-o"
-                  size="12"
-                  style="margin-right: 5px"
-                />
+                <pro-icon type="setting" size="12" style="margin-right: 5px" />
                 <span>管理面板</span>
               </div>
             </div>

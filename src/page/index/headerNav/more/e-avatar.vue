@@ -47,7 +47,9 @@
 import { useRouter } from "vue-router";
 import { computed, ref, nextTick } from "vue";
 import { User, Key, CaretBottom } from "@element-plus/icons-vue";
+import { ElMessageBox } from "element-plus";
 import { useStore } from "@/store";
+import { resetRouter } from "@/router";
 
 // 获取实例
 const $router = useRouter();
@@ -67,6 +69,16 @@ const userInfo = computed(() => $store.getters.userInfo);
 // 退出登录
 
 const logout = () => {
+  ElMessageBox.confirm("退出系统, 是否继续?", "提示", {
+    confirmButtonText: "确认",
+    cancelButtonText: "取消",
+    type: "warning"
+  }).then(() => {
+    $store.dispatch("LogOut").then(() => {
+      resetRouter();
+      $router.push({ path: "/login" });
+    });
+  });
   // this.$confirm(this.$t("logoutTip"), this.$t("tip"), {
   //   confirmButtonText: this.$t("submitText"),
   //   cancelButtonText: this.$t("cancelText"),

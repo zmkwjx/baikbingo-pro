@@ -43,12 +43,24 @@ const actions = {
           commit("SET_USER_INFO", data);
           // 设置TOKEN
           commit("SET_TOKEN", data?.token);
+          commit("SET_KEEP_ALIVE", true);
           // 出口
           resolve();
         })
         .catch((err) => {
           reject(err);
         });
+    });
+  },
+  // 登出
+  LogOut({ dispatch, commit }: ActionContext<State, RootState>): Promise<any> {
+    return new Promise((resolve) => {
+      commit("SET_TOKEN", "");
+      commit("SET_USER_INFO", {});
+      commit("SET_MENU", []);
+      commit("SET_KEEP_ALIVE");
+      dispatch("ClearTag");
+      resolve();
     });
   }
 };

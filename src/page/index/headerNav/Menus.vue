@@ -34,7 +34,7 @@
                 <div :title="item.name" class="bkpro-menus-overlay-box__btn">
                   <span @click="onSelect(item)">{{ item.name }}</span>
                   <pro-icon
-                    type="close"
+                    type="close-circle-fill"
                     title="从快捷访问移除"
                     @click="onStarDel(item)"
                   ></pro-icon>
