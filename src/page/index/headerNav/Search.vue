@@ -26,7 +26,7 @@
         </div>
       </template>
       <!-- 选择 -->
-      <div class="bkpro-header-search-panel">
+      <div class="bkpro-header-search-panel" @click="onFocus">
         <!-- 搜索结果 -->
         <div v-if="searchMsg" class="bkpro-header-search-panel__result">
           <div class="bkpro-header-search-panel__result-tips">
@@ -127,6 +127,7 @@ const childrenToArray = (data: RouterMenuStruct[] = []): RouterMenuStruct[] => {
 const onFocus = () => {
   show.value = true;
 };
+
 // 返回父级名字
 const getParentName = (item: RouterMenuStruct): string => {
   const res = dataSource.value.find((s) => s.id === item.pid);
